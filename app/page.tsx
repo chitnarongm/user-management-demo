@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
-import { Counter } from "./components/counter/Counter";
+"use client";
+import { redirect } from "next/navigation";
+import { FunctionComponent, useEffect } from "react";
 
-export default function IndexPage() {
-  return <Counter />;
-}
+const IndexPage: FunctionComponent = () => {
+  useEffect(() => {
+    redirect("/user-management");
+  }, []);
 
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
+  return null;
 };
+
+export default IndexPage;
