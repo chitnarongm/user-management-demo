@@ -58,7 +58,7 @@ const update = (updatedUser: UserData) => {
   }
 };
 
-const _delete = (id: string) => {
+const remove = (id: string) => {
   users = users.filter((user) => user.id !== id);
   saveData();
 };
@@ -67,6 +67,6 @@ export const userService = {
   getAll,
   create,
   update,
-  delete: _delete,
+  remove,
   find,
 };
