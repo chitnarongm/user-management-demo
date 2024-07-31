@@ -56,6 +56,10 @@ Start the server
   npm run dev
 ```
 
+Login into app
+
+- All users in `/data/initialUsers.json` has decrypted password as `${name}pass`, Examle: login infomation of `Lucas` will be `email: lucas@mail.com` and `password: Lucaspass` (for more information `/app/api/users/mockUserService.ts` on `hashPasswordByName` function )
+
 
 ## Running Tests
 
