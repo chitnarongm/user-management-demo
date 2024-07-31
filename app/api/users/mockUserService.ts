@@ -9,7 +9,7 @@ const saveData = () => {
   fs.writeFileSync("./data/users.json", JSON.stringify(users, null, 4));
 };
 
-const hasePasswordByName = (name: string) => {
+const hashPasswordByName = (name: string) => {
   const salt = genSaltSync(10);
   return hashSync(`${name}pass`, salt);
 };
@@ -31,7 +31,7 @@ const create = (user: UserData) => {
   const newUser: PrivateUser = {
     ...user,
     id: uuidv4(),
-    password: hasePasswordByName(user.name),
+    password: hashPasswordByName(user.name),
   };
 
   users.unshift(newUser);
@@ -49,7 +49,7 @@ const update = (updatedUser: UserData) => {
 
   const newUser: PrivateUser = {
     ...updatedUser,
-    password: hasePasswordByName(updatedUser.name),
+    password: hashPasswordByName(updatedUser.name),
   };
 
   if (tagetUser) {
