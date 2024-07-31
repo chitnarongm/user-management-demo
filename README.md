@@ -1,29 +1,77 @@
-# Redux Toolkit TypeScript Example
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
+# User Management Demo
 
-**Redux Toolkit**(also known as "RTK" for short) provides a standardized way to write Redux logic. It includes utilities that help simplify many common use cases, including [store setup](https://redux-toolkit.js.org/api/configureStore), [creating reducers and writing immutable update logic](https://redux-toolkit.js.org/api/createreducer), and even [creating entire "slices" of state at once](https://redux-toolkit.js.org/api/createslice). This example showcases each of these features in conjunction with Next.js.
-
-## Deploy Your Own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
-
-## How to Use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
+This repo is created by using [Next.js 14](https://nextjs.org/blog/next-14) template from [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started) :
 ```bash
 npx create-next-app --example with-redux with-redux-app
 ```
 
-```bash
-yarn create next-app --example with-redux with-redux-app
-```
+
+## Features and Implementation
+
+- Simulate login feature and manage user session via [NextAuth.js Credentials](https://next-auth.js.org/providers/credentials).
+
+- Using [Redux](https://redux.js.org/usage/nextjs) and [Redux Toolkit](https://redux-toolkit.js.org) to manage application state when create, update, delete and display user information.
+
+- Implement [React Hook Form](https://react-hook-form.com) and [Yup](https://github.com/jquense/yup) to handle form validation.
+
+- UI component is powered by [Material UI](https://mui.com/material-ui/getting-started).
+
+- Handle fetching data from server using [Axios](https://axios-http.com/docs/intro) and [Redux AsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk)
+
+- Using [Jest](https://jestjs.io/docs/getting-started) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) for unit testing.
+## Run Locally
+
+Clone the project
 
 ```bash
-pnpm create next-app --example with-redux with-redux-app
+  git clone https://github.com/chitnarongm/user-management-demo.git
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Go to the project directory
+
+```bash
+  cd user-management-demo
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Before starting, this repo has simulated simple local database as following files:
+- `/app/api/users/mockUserService.ts` - to simulate `create`, `update`, `delete` and `retrieve` database operations.
+- `/data/users.json` - main database file, will be operated by `/app/api/users/mockUserService.ts`
+- `/data/initialUsers.json` - initial valid sample user data, used to setup and reset user data by copying data from this file into `/data/users.json`
+
+Setup database
+
+- Copy data from `/data/initialUsers.json` to `/data/users.json`
+
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Running Tests
+
+To run tests, run the following command
+```bash
+  npm run test
+```
+
+Watch mode
+
+```bash
+  npm run test:watch
+```
+
+Coverage mode
+
+```bash
+  npm run coverage
+```
